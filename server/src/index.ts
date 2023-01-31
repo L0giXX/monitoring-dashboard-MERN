@@ -22,6 +22,16 @@ app.post("/add/data", async (req: Request, res: Response) => {
   res.json(createdData);
 });
 
+app.get("/get/data/all", async (req: Request, res: Response) => {
+  const allData = await Data.find();
+  res.json(allData);
+});
+
+app.delete("/delete/data", async (req: Request, res: Response) => {
+  const deletedData = await Data.deleteMany();
+  res.json("Deleted Data: " + deletedData.deletedCount);
+});
+
 app.get("/", (req: Request, res: Response) => {
   res.send("hello world");
 });
