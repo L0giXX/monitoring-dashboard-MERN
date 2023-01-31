@@ -4,12 +4,10 @@ const Schema = mongoose.Schema;
 //onst ObjectId = mongoose.Types.ObjectId;
 
 const DataSchema = new Schema({
-  ip: String,
-  loc: String,
-  sensor: String,
-  temp: Number,
-  humi: Number,
-  press: Number,
+  sensor: { type: String },
+  temp: { type: Number },
+  humi: { type: Number },
+  press: { type: Number },
 });
 
 const DataModel = mongoose.model("Data", DataSchema);
